@@ -1,0 +1,52 @@
+
+{% extends 'app1/base.html' %}
+
+{% block title %}Non-Vegetarian Food{% endblock %}
+{% load static %}
+{% block content %}
+<head>
+    <style>
+        body{
+            background-color: lightsalmon;
+        }
+        h2{
+            padding: 20px;
+            padding-left: 440px;
+        }
+    </style>
+</head>
+<h2> Enjoy your favourite Non-Vegetarian food!</h2>
+<div class="container-fluid">
+    <div class="row text-center">
+        <div class="col-md-8">
+            <!-- <h3 class="title"> Enjoy your favourite Non-Vegetarian food!</h3> -->
+            <!-- <div id="test">  </div> -->
+            <div class="row">
+                {% for nonveg in nonvegs %}
+                <div class="col-md-6 p-4">
+                    <img class="picture" src="{{nonveg.nvImage}}">
+                    <h4 class="pt-3" id="nv{{ nonveg.id }}">{{ nonveg.name }}</h4>
+                    <div class="from-check-inline">
+                        <label class="from-check-label">
+                            <input class="from-check-input" name="nonveg{{ nonveg.id }}" value="{{ nonveg.price }}" type="radio">
+                            Rs {{nonveg.price}}
+                        </label>
+                    </div>
+                    <div>
+                        <button class="btn-info mt-3" onclick="addNonVeg('{{ nonveg.id }}')"> Add to cart</button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-4 orders">
+            <div class="bg-dark p-4 rounded text-light"> 
+                <h3>Order list</h3>
+                    <ul id="nvcart"> </ul>
+                <h4 id="nvtotal">Total: Rs 0</h4>
+            </div>
+        </div>
+    </div>
+</div> 
+<script src="{% static 'app1/js/nonveg.js' %}"></script>
+{% endblock %}

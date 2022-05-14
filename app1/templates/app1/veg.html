@@ -1,0 +1,51 @@
+
+{% extends 'app1/base.html' %}
+{% load static %}
+{% block title %}Vegetarian Food{% endblock %}
+
+{% block content %}
+<head>
+    <style>
+        body{
+            background-color: lightgreen;
+        }
+        h2{
+            padding: 20px;
+            padding-left: 440px;
+        }
+    </style>
+</head>
+
+<h2>Enjoy your favourite Vegetarian food!</h2>
+<div class="container-fluid">
+    <div class="row text-center">
+        <div class="col-md-8">
+            <div class="row">
+                {% for veg in vegs %}
+                <div class="col-md-6 p-4">
+                    <img class="picture" src="{{veg.pImage}}">
+                    <h4 class="pt-3" id="v{{veg.id}}">{{ veg.name }}</h4>
+                    <div class="from-check-inline">
+                        <label class="from-check-label">
+                            <input class="from-check-input" name="veg{{veg.id}}" value="{{veg.price}}" type="radio" >
+                            Rs {{veg.price}}
+                        </label>
+                    </div>
+                    <div>
+                        <button class="btn-info mt-3" onclick="addVeg('{{ veg.id }}')"> Add to cart</button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-4 orders">
+            <div class="bg-dark p-4 rounded text-light"> 
+                <h3>Order list</h3>
+                <ul id="vcart"></ul>
+                <h4 id="vtotal">Total: Rs 0</h4>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'app1/js/order.js' %}"></script>
+{% endblock %}
