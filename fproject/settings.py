@@ -26,7 +26,7 @@ SECRET_KEY = 'gjlc@l%wn=$xs6wlq&$%*7q-9o*ocwldhiv#hf_&p!h#+d$su!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['abhijeet-restaurant.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 
 
 # Application definition
