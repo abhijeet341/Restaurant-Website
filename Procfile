@@ -1,0 +1,1 @@
+web: gunicorn abhijeet-restaurant.wsgi
