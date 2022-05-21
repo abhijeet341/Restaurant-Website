@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = 'gjlc@l%wn=$xs6wlq&$%*7q-9o*ocwldhiv#hf_&p!h#+d$su!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['abhijeet-restaurant.herokuapp.com']
 
