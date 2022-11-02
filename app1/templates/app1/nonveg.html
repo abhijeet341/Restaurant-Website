@@ -15,12 +15,11 @@
         }
     </style>
 </head>
+
 <h2> Enjoy your favourite Non-Vegetarian food!</h2>
 <div class="container-fluid">
     <div class="row text-center">
         <div class="col-md-8">
-            <!-- <h3 class="title"> Enjoy your favourite Non-Vegetarian food!</h3> -->
-            <!-- <div id="test">  </div> -->
             <div class="row">
                 {% for nonveg in nonvegs %}
                 <div class="col-md-6 p-4">
@@ -42,11 +41,11 @@
         <div class="col-md-4 orders">
             <div class="bg-dark p-4 rounded text-light"> 
                 <h3>Order list</h3>
-                    <ul id="nvcart"> </ul>
+                <ul id="nvcart"> </ul>
                 <h4 id="nvtotal">Total: Rs 0</h4>
             </div>
         </div>
     </div>
 </div> 
-<script src="{% static 'app1/js/nonveg.js' %}"></script>
+<script src="{% static 'app1/js/order1.js' %}"></script>
 {% endblock %}

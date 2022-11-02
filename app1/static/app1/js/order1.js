@@ -4,8 +4,8 @@ var nvtotal=document.querySelector('#nvtotal');
 
 function addNonVeg(nvid)
 {
-    nonvegId='#nv'+nvid;
-    var name=document.querySelector(nonvegId).innerHTML;
+    nonvegId1='#nv'+nvid;
+    var name=document.querySelector(nonvegId1).innerHTML;
     
     var radio='nonveg'+ nvid;
     var pri= document.getElementsByName(radio);
@@ -14,7 +14,7 @@ function addNonVeg(nvid)
     {
         price=pri[0].value;
     }
-    else price=0;
+    else return;
     var orders=JSON.parse(localStorage.getItem('orders'));
     var total=localStorage.getItem('total');
     var cartSize=orders.length;
@@ -25,7 +25,7 @@ function addNonVeg(nvid)
  
     var cart=document.querySelector("#cart"); 
     cart.innerHTML=orders.length;
-    butto='<button class="del" oneclick="removenonveg(' +cartSize+ ')">x</button>';
+    butto='<button class="del" onclick="removenonveg(' + cartSize + ')">x</button>';
     nvtotal.innerHTML='Total: Rs ' + total;
     nvcart.innerHTML+='<li>'+ name +' '+ ': Rs '+ price +' '+butto+ '</li>';
     
@@ -39,7 +39,7 @@ function nvshoppingCart()
     nvcart.innerHTML='';
     for(let i=0;i<cartSize;i++)
     {
-        butto='<button class="del" oneclick="removenonveg(' +cartSize+ ')">x</button>';
+        butto='<button class="del" onclick="removenonveg(' + i + ')">x</button>';
         nvcart.innerHTML+='<li>'+ orders[i][0]+' '+orders[i][1] + ' '+butto+ '</li>';
     }
     nvtotal.innerHTML='Total: Rs ' + total;
@@ -52,10 +52,10 @@ function removenonveg(n)
     var orders=JSON.parse(localStorage.getItem('orders'));
     var total=localStorage.getItem('total');
     total=Number(total)-Number(orders[n][1]);
-    // orders.splice(n,0);
+    orders.splice(n,1);
 
-    var cart=document.querySelector("#cart");
-    cart.innerHTML=orders.length;
+    // var cart=document.querySelector("#cart");
+    // cart.innerHTML=orders.length;
     
     localStorage.setItem('orders',JSON.stringify(orders));
     localStorage.setItem('total',total);

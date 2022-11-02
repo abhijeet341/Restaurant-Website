@@ -10,18 +10,9 @@
      background-repeat: no repeat;
      z-index: -1;
 }
-/* .title{
-     margin: 50px;
-     text-align: center;
-} */
 
 .picture{
      width: 200px;
      border-radius: 50%;
      height: 150px;
 }
-/* .item-title{
-     position: relative;
-     margin-top: 10px;
-     left: 120px;
-} */
